@@ -3,25 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: jveras <verasjoan587@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 13:09:03 by jlira             #+#    #+#             */
-/*   Updated: 2023/11/21 13:09:08 by jlira            ###   ########.fr       */
+/*   Created: 2023/11/03 08:57:23 by jveras            #+#    #+#             */
+/*   Updated: 2023/11/29 13:48:58 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef	PRINTF_H 
+# define PRINTF_H
 
+# include <unistd.h>
 # include <stdarg.h>
-# include "./libft/libft.h"
 
-int		ft_printf(const char *fmt, ...);
-int		ft_putchar(char c);
-int		ft_putnbr(int nb);
-int		ft_putstr(char *str);
-int		ft_putunsnbr(unsigned int nb);
-int		ft_puthexa(unsigned long d, int arg);
-int		check_argument(const char *arg, int i, va_list ap);
+int	ft_putnbr_fd(int n, int fd);
+int	ft_putchar_fd(char c, int fd);
+int	ft_putstr_fd(char *s, int fd);
+
+int	ft_putaddr(unsigned long n);
+int	ft_lower_hex(unsigned int n);
+int	ft_upper_hex(unsigned int n);
+int	ft_putuns_fd(unsigned int n, int fd);
+
+int	ft_printf(const char *format, ...);
+int	ft_check_args(const char *format, int i, int counter, va_list ap);
 
 #endif
